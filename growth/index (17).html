@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-Booked Texas Roof Replacement Inspections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F172A;--card:#1E293B;--line:#334155;--or:#F97316;--em:#10B981;--red:#EF4444;--tx:#fff;--mu:#94A3B8}
+*{box-sizing:border-box;margin:0}
+body{background:#0B1222;color:var(--tx);font-family:Inter,system-ui,sans-serif;min-height:100vh;padding:16px}
+.wrap{max-width:1040px;margin:0 auto}
+.stage{position:relative;aspect-ratio:16/9;background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.slide{position:absolute;inset:0;padding:4% 5% 14% 5%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.slide.on{opacity:1;pointer-events:auto}
+h1{font-size:clamp(18px,4vw,44px);font-weight:800;line-height:1.12;max-width:20em}
+h2{font-size:clamp(15px,2.6vw,28px);font-weight:800;margin-bottom:2.2%}
+.or{color:var(--or)}.em{color:var(--em)}
+.cal{margin-top:4%;background:#fff;color:#0F172A;border-radius:12px;padding:2.5% 3%;text-align:left;max-width:560px;width:90%;border-left:6px solid var(--em);font-size:clamp(10px,1.6vw,16px);transform:scale(.6);opacity:0}
+.slide.on .cal{animation:pop .6s .5s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes pop{to{transform:scale(1);opacity:1}}
+.cal b{display:inline-block;background:var(--em);color:#fff;border-radius:99px;padding:2px 10px;font-size:.75em;margin-bottom:6px}
+.cal small{display:block;color:#475569;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3%;width:100%;max-width:820px}
+.box{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:4%;font-size:clamp(10px,1.7vw,18px);font-weight:600;text-align:left;line-height:1.35}
+.box.bad{border-color:var(--red)}.box.good{border-color:var(--em)}
+.box p+p{margin-top:8px}.box .big{font-size:1.5em;font-weight:800}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2%;width:100%;max-width:900px}
+.st{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:3%;font-size:clamp(9px,1.45vw,15px);opacity:.45;transition:.35s;text-align:left}
+.st i{display:grid;place-items:center;width:2em;height:2em;border-radius:50%;background:var(--line);font-style:normal;font-weight:800;margin-bottom:6px}
+.st b{display:block;margin-bottom:3px}.st span{color:var(--mu)}
+.st.on{opacity:1;border-color:var(--or);transform:translateY(-4px);box-shadow:0 0 0 3px #F9731633}
+.st.on i{background:var(--or)}.st.done{opacity:.8;border-color:var(--em)}.st.done i{background:var(--em)}
+.pill,.btn2{background:var(--or);color:#fff;border:0;border-radius:99px;font:600 clamp(10px,1.5vw,14px) Inter;padding:8px 14px;cursor:pointer}
+#qc{margin-top:3%;display:none}#qc.show{display:inline-block}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:2%;width:100%;max-width:860px}
+.off{background:var(--card);border:2px solid var(--or);border-radius:12px;padding:3%}
+.off:nth-child(3){border-color:var(--em)}
+.off strong{display:block;font-size:clamp(14px,2.8vw,30px);font-weight:800}
+.off span{font-size:clamp(9px,1.3vw,13px);color:var(--mu)}
+.roi{margin-top:2.5%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:2% 3%;width:100%;max-width:860px;font-size:clamp(10px,1.5vw,15px)}
+.roi input{width:100%;accent-color:var(--or);margin:4px 0}
+.rr{display:grid;grid-template-columns:repeat(3,1fr);gap:2%;margin-top:4px}
+.rr div{font-size:.85em;color:var(--mu)}.rr b{display:block;font-size:1.5em;color:#fff}.rr .n b{color:var(--em)}
+.next{display:grid;grid-template-columns:1fr 1fr;gap:3%;width:100%;max-width:860px}
+.next .box{font-size:clamp(10px,1.7vw,17px)}
+.next button{margin-top:10px}
+#vslVideo{position:absolute;right:2.5%;bottom:3%;width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid #F97316;box-shadow:0 8px 24px #0009;background:#1E293B;cursor:pointer;z-index:5}
+#cap{position:absolute;left:3%;right:calc(140px + 6%);bottom:3%;background:#000b;border-radius:8px;padding:8px 12px;font-size:clamp(10px,1.5vw,15px);line-height:1.35;text-align:left;z-index:4;display:none}
+#cap.on{display:block}
+#chk{position:absolute;top:10px;right:10px;z-index:6;display:none}#chk.show{display:block}
+#mode{position:absolute;top:10px;left:10px;font-size:11px;background:var(--or);color:#fff;border-radius:6px;padding:2px 8px;z-index:6;display:none}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;background:var(--card);border-radius:12px;padding:8px 10px}
+.bar button{background:#0F172A;color:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:600 13px Inter;cursor:pointer}
+.bar button.act{background:var(--or);border-color:var(--or)}
+#seek{flex:1 1 200px;accent-color:var(--or)}#tm{font-size:13px;color:var(--mu);min-width:92px}
+.chs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chs button{flex:1 1 120px;background:var(--card);color:var(--mu);border:1px solid var(--line);border-radius:8px;padding:7px;font:600 12px Inter;cursor:pointer}
+.chs button.on{color:#fff;border-color:var(--or)}
+.cta{display:block;width:100%;margin-top:14px;background:var(--or);color:#fff;border:0;border-radius:14px;padding:16px;font:800 clamp(16px,3vw,24px) Inter;cursor:pointer;box-shadow:0 8px 28px #F9731655}
+.cta small{display:block;font:400 clamp(11px,1.6vw,14px) Inter;margin-top:4px;opacity:.95}
+.ov{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;padding:14px;z-index:50}
+.ov.on{display:flex}
+.md{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;width:100%;max-width:460px;max-height:92vh;overflow:auto;position:relative}
+.x{position:absolute;top:8px;right:12px;background:none;border:0;color:var(--mu);font-size:26px;cursor:pointer}
+.md label{display:block;font-size:13px;color:var(--mu);margin:10px 0 3px}
+.md input,.md select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:#0F172A;color:#fff;font:15px Inter}
+.ph{border:2px dashed var(--or);border-radius:10px;padding:18px;margin-top:12px;color:var(--mu);text-align:center;font-size:13px}
+.phone{background:#000;border-radius:34px;padding:12px;border:3px solid #475569;max-width:340px;margin:0 auto}
+.scr{background:#fff;border-radius:24px;padding:14px 10px;color:#000;font-size:13px;display:flex;flex-direction:column;gap:8px}
+.hd{text-align:center;font-size:12px;color:#64748B;border-bottom:1px solid #E2E8F0;padding-bottom:6px}
+.m{max-width:85%;padding:8px 11px;border-radius:16px;line-height:1.3}
+.m.o{background:#E5E5EA;align-self:flex-start}.m.i{background:#0A84FF;color:#fff;align-self:flex-end}
+.m small{display:block;font-size:10px;opacity:.7;margin-bottom:2px}
+.al{background:#FEF3C7;border:1px solid #F59E0B;color:#92400E;border-radius:10px;padding:8px;font-weight:600;font-size:12px}
+.slide[data-ch="3"]{padding:12px 3% 150px;justify-content:flex-start;gap:10px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center}
+.tab{background:var(--card);color:var(--mu);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:600 clamp(10px,1.3vw,13px) Inter;cursor:pointer}
+.tab.on{color:#fff;border-color:var(--or);background:#F9731622}
+#qc{margin:0}
+.split{display:flex;gap:4%;align-items:center;justify-content:center;width:100%}
+.ph3{position:relative;height:330px;aspect-ratio:9/17;background:#000;border-radius:30px;padding:7px;border:2px solid #475569;overflow:hidden;flex:none}
+.notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:54px;height:12px;background:#000;border-radius:9px;z-index:4}
+.ps{position:absolute;inset:7px;background:#fff;border-radius:23px;padding:26px 7px 8px;display:none;flex-direction:column;justify-content:flex-end;gap:5px;font-size:9px;color:#000;text-align:left;overflow:hidden}
+.ps.on{display:flex}
+.ps .m{font-size:9px;padding:5px 8px;border-radius:12px;max-width:92%;line-height:1.25}
+[data-at]{display:none}[data-at].v{display:block;animation:fi .4s}
+@keyframes fi{from{opacity:0;transform:translateY(8px) scale(.96)}}
+.ban{position:absolute;left:10px;right:10px;top:-80px;background:#10B981;color:#fff;border-radius:14px;padding:7px 9px;font-size:9px;font-weight:700;z-index:5;transition:top .55s cubic-bezier(.2,1.4,.4,1);box-shadow:0 6px 16px #0006;text-align:left}
+.ban.v{top:12px}
+.lead{background:#0F172A;color:#fff;border-radius:10px;padding:6px 8px;font-weight:700;border-left:4px solid var(--or)}
+.hot{background:var(--or);color:#fff;font-weight:700;align-self:flex-start}
+.pdf{font-weight:600}.stars{font-size:18px;letter-spacing:3px;color:#CBD5E1}
+.stars span{transition:.25s;display:inline-block}.stars span.g{color:#FBBF24;transform:scale(1.35)}
+.fb{background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:6px;align-self:stretch}
+.fbh{display:flex;gap:5px;align-items:center;margin-bottom:4px}.fbh i{width:18px;height:18px;border-radius:50%;background:var(--or)}
+.fbh small{display:block;color:#64748B;font-size:8px}.fb p{font-size:9.5px;font-weight:600;line-height:1.25}
+.fbimg{height:64px;border-radius:6px;background:linear-gradient(135deg,#1E293B,#F97316);display:grid;place-items:center;color:#fff;font-weight:800;margin:5px 0}
+.fbbtn{width:100%;background:#1877F2;color:#fff;border:0;border-radius:6px;padding:7px;font:700 10px Inter;transition:.2s}
+.fbbtn.v{background:#0B4FB0;transform:scale(.93);box-shadow:0 0 0 5px #1877F255}
+.gbp{background:#fff;color:#202124;border-radius:12px;padding:10px;width:100%;max-width:340px;text-align:left;font-size:clamp(10px,1.3vw,13px)}
+.gh{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.mb{display:none;background:#10B981;color:#fff;border-radius:99px;padding:3px 9px;font-weight:700;font-size:11px;animation:glow 1.2s infinite alternate}
+.mb.v{display:inline-block}@keyframes glow{to{box-shadow:0 0 14px 4px #10B981aa}}
+.rows{position:relative}
+.row{position:absolute;left:0;right:0;display:flex;gap:8px;align-items:center;padding:4px 6px;border-radius:8px;border:1px solid #E2E8F0;background:#fff;transition:top .9s cubic-bezier(.4,0,.2,1),opacity .5s}
+.row.me{border:2px solid var(--or);background:#FFF7ED}
+.row .rk{font-weight:800;color:#5F6368;min-width:22px}.row small{display:block;color:#5F6368}
+.cut{position:absolute;left:0;right:0;border-top:2px dashed #94A3B8;font-size:9px;color:#94A3B8;text-align:center;z-index:0}
+@media(max-width:640px){.ph3{height:280px}.slide[data-ch="3"]{padding:10px 2% 130px}.split{gap:2%}.gbp{padding:6px}}
+@media(max-width:640px){#vslVideo{width:92px;height:92px}#cap{right:calc(92px + 5%);padding:5px 8px}.slide{padding:3% 4% 22% 4%}.steps,.offers{grid-template-columns:1fr 1fr}.next{grid-template-columns:1fr}.stage{aspect-ratio:auto;min-height:540px}.rr{grid-template-columns:1fr 1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="stage" id="stage">
+  <div id="mode">Preview mode (timer)</div>
+  <button class="pill" id="chk">Already booked your call? Confirm your spot →</button>
+
+  <section class="slide" data-ch="1">
+    <h1>Pre-Booked Texas Roof Replacement Inspections — <span class="or">$0 Monthly Retainer</span></h1>
+    <div class="cal"><b>CONFIRMED</b><br><strong>Full Roof Replacement Inspection — Plano, TX</strong><small>($19,400 Est. Value)</small></div>
+  </section>
+
+  <section class="slide" data-ch="2">
+    <h2>Why most roofing ad campaigns fail</h2>
+    <div class="two">
+      <div class="box bad"><p>Slow Lead Response (4+ Hrs)</p><p class="big" style="color:var(--red)">$65,000+</p><p>in Forgotten Quotes</p></div>
+      <div class="box good"><p>60-Second Response + Automated Quote Follow-Up</p><p class="big em">Every quote chased</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-ch="3">
+    <div class="tabs">
+      <button class="tab">1 Targeting</button><button class="tab">2 Booking</button><button class="tab">3 Quote-Chaser</button><button class="tab">4 Reviews &amp; Map Pack</button>
+      <button class="pill" id="qc">📱 Preview Quote-Chaser Texts</button>
+    </div>
+    <div class="split">
+      <div class="ph3">
+        <div class="notch"></div>
+        <div class="ban" id="ban">📅 Inspection Booked: Tomorrow 10:00 AM — David M. (Full Replacement)</div>
+        <div class="ps on">
+          <div class="fb"><div class="fbh"><i></i><div><b>[Your Roofing Co]</b><small>Sponsored</small></div></div>
+            <p>Texas Homeowners: Is Your Roof 12+ Years Old? Check Hail &amp; Wind Replacement Eligibility.</p>
+            <div class="fbimg">Free roof check</div>
+            <button class="fbbtn" id="fbb">Get Free Inspection</button></div>
+          <div class="m hot" data-at="8">✓ Request received — lead captured</div>
+        </div>
+        <div class="ps">
+          <div class="lead" data-at="0">New Lead: David M. (18-yr-old shingle roof, Frisco TX)</div>
+          <div class="m i" data-at="4"><small>⚡ Instant reply • 42 sec</small>Hi David, it's Sarah with [Your Roofing Co]. Is your 18-year-old roof a full replacement job? Any leaks or storm damage?</div>
+          <div class="m o" data-at="8"><small>David</small>Yes, full replacement. Hail last spring.</div>
+        </div>
+        <div class="ps">
+          <div class="m o pdf" data-at="0">📄 Quote_David_M_19400.pdf</div>
+          <div class="m i" data-at="4"><small>Day 2 (Auto-SMS)</small>Hey David, just checking you got the full replacement estimate and had no questions on the shingles?</div>
+          <div class="m i" data-at="8"><small>Day 5 (Auto-SMS)</small>Quick heads up—we're locking in our crew schedule next week. Want me to hold a spot for your roof?</div>
+          <div class="m o" data-at="12"><small>David</small>Reviewed with my wife—let's get it on the schedule!</div>
+          <div class="m hot" data-at="14">🔥 Ready to Sign ($19,400)</div>
+        </div>
+        <div class="ps">
+          <div class="m i" data-at="0"><small>Post-job (Auto-SMS)</small>Thanks for choosing us for your new roof, David! Mind leaving a quick 5-star review?</div>
+          <div class="m o stars" data-at="3"><span data-star="4">★</span><span data-star="5">★</span><span data-star="6">★</span><span data-star="7">★</span><span data-star="8">★</span></div>
+          <div class="m hot" data-at="9">⭐ New 5-star Google review!</div>
+        </div>
+      </div>
+      <div class="gbp">
+        <div class="gh"><b>roof replacement near Frisco, TX</b><span class="mb" id="mb">Top 3 Map Pack</span></div>
+        <div class="rows" id="rows"><div class="cut" id="cut">Below the Map Pack</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-ch="4">
+    <h2>Simple math, simple offer</h2>
+    <div class="offers">
+      <div class="off"><strong>$0/mo</strong><span>Retainer</span></div>
+      <div class="off"><strong>$1,500</strong><span>One-Time Buildout</span></div>
+      <div class="off"><strong>5%</strong><span>Performance Split (90 Days)</span></div>
+    </div>
+    <div class="roi">
+      <label for="roi">Extra closed roofs per month: <b id="rn" class="or">3</b> at $18,000 avg ticket</label>
+      <input type="range" id="roi" min="1" max="5" value="3">
+      <div class="rr"><div>Extra Monthly Revenue<b id="r1"></b></div><div>Our 5% Fee<b id="r2"></b></div><div class="n">Your Net Revenue<b id="r3"></b></div></div>
+    </div>
+  </section>
+
+  <section class="slide" data-ch="5">
+    <h2>Your next step</h2>
+    <div class="next">
+      <div class="box good"><p><b>New Visitors</b></p><p>Check If Your Texas Territory Is Open</p><button class="btn2 open-t">Check My Territory</button></div>
+      <div class="box"><p><b>Already Booked?</b></p><p>Pre-Call Checklist: be at your computer + know your crew capacity</p></div>
+    </div>
+  </section>
+
+  <div id="cap" class="on"></div>
+  <video id="vslVideo" src="vsl.mp4" playsinline preload="metadata"></video>
+</div>
+
+<div class="bar">
+  <button id="pp" aria-label="Play">▶ Play</button>
+  <input type="range" id="seek" min="0" max="235" step="0.1" value="0" aria-label="Progress">
+  <span id="tm">0:00 / 3:55</span>
+  <button id="spd">1x</button>
+  <button id="cc" class="act">CC</button>
+</div>
+<div class="chs" id="chs"></div>
+
+<button class="cta open-t">Check My Texas Territory →<small>10-Minute Walkthrough • $0 Monthly Retainer • Limited to 1 Roofer Per Area</small></button>
+</div>
+
+<div class="ov" id="mt"><div class="md">
+  <button class="x" data-close>&times;</button>
+  <div id="s1">
+    <h2>Check your territory</h2>
+    <label>Name</label><input id="fn" autocomplete="name">
+    <label>Roofing Company</label><input id="fc" autocomplete="organization">
+    <label>Texas Metro / City</label><input id="fcity" placeholder="e.g. Plano">
+    <label>Active Crew Count</label><select id="fcrew"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
+    <button class="cta" id="go" style="font-size:17px">See If It's Open →</button>
+  </div>
+  <div id="s2" style="display:none">
+    <h2 class="em" id="avail"></h2>
+    <div class="ph" id="ghl">PASTE YOUR GOHIGHLEVEL CALENDAR EMBED &lt;iframe&gt; HERE</div>
+  </div>
+</div></div>
+
+<div class="ov" id="ms"><div class="md">
+  <button class="x" data-close>&times;</button>
+  <div class="phone"><div class="scr">
+    <div class="hd">Messages • [Your Roofing Co]</div>
+    <div class="m o"><small>Day 2 (Auto-SMS)</small>Hey Mark, it's Sarah with [Your Roofing Co]—just checking in to make sure you got the full replacement estimate from yesterday and see if you had any questions on the architectural shingles?</div>
+    <div class="m o"><small>Day 5 (Auto-SMS)</small>Hey Mark, quick heads up—we're locking in our crew schedule for next week in [City]. Want me to hold a tentative spot for your roof before the calendar fills up?</div>
+    <div class="m i"><small>Homeowner Reply</small>Actually yes, my wife and I reviewed it last night—let's get it scheduled.</div>
+    <div class="al">🔥 Hot Lead Alert sent to Roofer: Ready to Sign ($18,500)</div>
+  </div></div>
+</div></div>
+
+<script>
+const DUR=235;
+const CAPS=[
+{id:1,chapter:1,start:0,end:12,text:"If you own a roofing company in Texas and you’re tired of paying agencies $3,000 a month just for cold Facebook leads you don't have time to call—give me the next three and a half minutes."},
+{id:2,chapter:1,start:12,end:25,text:"I’m going to show you how we put pre-booked, qualified full roof replacement inspections directly on your calendar, and automatically follow up on every quote until the homeowner signs."},
+{id:3,chapter:1,start:25,end:35,text:"Plus, we collect 5-star Google reviews after every completed job—all without charging you a dime in monthly retainers."},
+{id:4,chapter:2,start:35,end:45,text:"Here’s the truth about why most roofing ad campaigns fail. It’s rarely the ads—it’s what happens after a homeowner clicks."},
+{id:5,chapter:2,start:45,end:58,text:"When a lead comes in at 2:00 PM while you’re up on a roof or running an estimate, nobody calls them back for four hours. By then, they’ve already booked two other roofers."},
+{id:6,chapter:2,start:58,end:73,text:"And even worse? Think about how many $15,000 to $25,000 quotes you’ve sent out over the last 60 days that just went quiet—not because they said no, but because nobody followed up five or six times."},
+{id:7,chapter:2,start:73,end:85,text:"You don’t have a lead problem. You have a follow-up bottleneck."},
+{id:8,chapter:3,start:85,end:97,text:"So instead of handing you another software login or a list of raw leads, we built an end-to-end replacement system specifically for Texas roofers. Here is how it works in four simple steps:"},
+{id:9,chapter:3,start:97,end:109,text:"First, we target full replacements—not small repairs. We run localized Meta campaigns aimed at homeowners with aging roofs in high-equity Texas neighborhoods."},
+{id:10,chapter:3,start:109,end:124,text:"Second, you never chase a cold lead. Our system combined with real human follow-up responds within 60 seconds, qualifies their roof age and budget, and books a confirmed inspection straight onto your calendar."},
+{id:11,chapter:3,start:124,end:134,text:"You still see every text and call inside your app for 100% visibility—you just don't have to do the chasing."},
+{id:12,chapter:3,start:134,end:152,text:"Third, we rescue your unsigned quotes. Once you send your bid, our automated text and phone follow-up engine checks in with the homeowner until they sign or say no—you only get pinged when they're ready to close."},
+{id:13,chapter:3,start:152,end:165,text:"Fourth, automatic 5-star Google reviews. The moment you mark a job complete, the system texts the homeowner for a review, pushing your Google Map Pack ranking higher every month."},
+{id:14,chapter:4,start:165,end:176,text:"Now, here is why this is completely different from any agency you’ve talked to. We charge zero monthly management retainers."},
+{id:15,chapter:4,start:176,end:192,text:"You cover your own Meta ad spend directly so you own all the data. There is a one-time $1,500 setup fee to build your custom ads, booking pipeline, quote-chasing engine, and review system for your territory."},
+{id:16,chapter:4,start:192,end:205,text:"After that, for the first 90 days, we only take a 5% performance split on closed replacement jobs we generate together. On an $18,000 Texas roof, 5% is $900—and if we don't close deals, you pay $0 in fees."},
+{id:17,chapter:5,start:205,end:218,text:"So here is what to do next: if you haven't booked your 10-minute walkthrough yet, click below to check your Texas territory and grab a time on my calendar."},
+{id:18,chapter:5,start:218,end:235,text:"And if you already have a call booked with me—make sure you’re in front of your phone or computer at our scheduled time and bring a rough idea of how many extra replacements your crews can handle next month. Talk soon."}
+];
+const CHAPS=[["The Promise",0],["The Bottleneck",35],["4-Step System",85],["Math & Offer",165],["Next Steps",205]];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const v=$('#vslVideo');
+let fallback=false,fbT=0,fbPlaying=false,last=0,rate=1,scale=1,resume=false;
+const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+const playing=()=>fallback?fbPlaying:!v.paused&&!v.ended;
+const baseT=()=>fallback?fbT:v.currentTime/scale;
+
+function setScale(){if(isFinite(v.duration)&&v.duration>0&&Math.abs(v.duration-DUR)>0.5)scale=v.duration/DUR;else scale=1}
+v.addEventListener('loadedmetadata',setScale);
+v.addEventListener('error',goFallback);
+v.addEventListener('stalled',()=>{if(v.readyState===0)goFallback()});
+setTimeout(()=>{if(v.readyState===0)goFallback()},4000);
+function goFallback(){if(fallback)return;fallback=true;fbT=0;fbPlaying=false;$('#mode').style.display='block';v.removeAttribute('src');v.style.background='#1E293B';sync()}
+
+function play(){if(fallback){fbPlaying=true;last=performance.now()}else v.play().catch(goFallback);ui()}
+function pause(){if(fallback)fbPlaying=false;else v.pause();ui()}
+function toggle(){playing()?pause():play()}
+function seek(b){b=Math.max(0,Math.min(DUR,b));if(fallback)fbT=b;else v.currentTime=b*scale;sync()}
+function ui(){$('#pp').textContent=playing()?'⏸ Pause':'▶ Play'}
+
+$('#pp').onclick=toggle;v.onclick=toggle;
+v.addEventListener('play',ui);v.addEventListener('pause',ui);v.addEventListener('ended',ui);
+$('#seek').oninput=e=>seek(+e.target.value);
+$('#spd').onclick=()=>{const r=[1,1.25,1.5];rate=r[(r.indexOf(rate)+1)%3];v.playbackRate=rate;$('#spd').textContent=rate+'x'};
+$('#cc').onclick=()=>{$('#cap').classList.toggle('on');$('#cc').classList.toggle('act')};
+$('#chk').onclick=()=>seek(205);
+$('#chs').innerHTML=CHAPS.map((c,i)=>'<button data-s="'+c[1]+'">'+(i+1)+'. '+c[0]+'</button>').join('');
+$$('#chs button').forEach(b=>b.onclick=()=>{seek(+b.dataset.s);if(!playing())play()});
+
+let curCh=0,curCap=0;
+function sync(){
+  const t=baseT();
+  const cap=CAPS.find(c=>t>=c.start&&t<c.end)||CAPS[CAPS.length-1];
+  if(cap.id!==curCap){curCap=cap.id;$('#cap').textContent=cap.text}
+  if(cap.chapter!==curCh){curCh=cap.chapter;$$('.slide').forEach(s=>s.classList.toggle('on',+s.dataset.ch===curCh));$$('#chs button').forEach((b,i)=>b.classList.toggle('on',i===curCh-1))}
+  if(curCh===3)render3(t);
+  $('#chk').classList.toggle('show',t>=35);
+  $('#qc').classList.toggle('show',t>=130);
+  $('#seek').value=t;
+  $('#tm').textContent=fmt(t*scale)+' / '+fmt(DUR*scale);
+}
+function loop(now){
+  if(fallback&&fbPlaying){fbT+=(now-last)/1000*rate;last=now;if(fbT>=DUR){fbT=DUR;fbPlaying=false;ui()}}
+  sync();requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+/* Modals: auto-pause / resume */
+function openM(id){resume=playing();pause();$(id).classList.add('on')}
+function closeM(){$$('.ov').forEach(o=>o.classList.remove('on'));if(resume){play();resume=false}}
+$$('.open-t').forEach(b=>b.onclick=()=>{$('#s1').style.display='';$('#s2').style.display='none';openM('#mt')});
+$('#qc').onclick=()=>openM('#ms');
+$$('[data-close]').forEach(b=>b.onclick=closeM);
+$$('.ov').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeM()}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+$('#go').onclick=()=>{
+  if(!$('#fn').value.trim()||!$('#fcity').value.trim()){alert('Please enter your name and Texas city.');return}
+  $('#avail').textContent='✅ '+$('#fcity').value.trim()+' Territory Currently Available!';
+  $('#s1').style.display='none';$('#s2').style.display='';
+};
+
+
+/* Chapter 3 showcase */
+const SS=[97,109,134,152];
+const OTH=[["Lone Star Roofing","4.8 ★ (112)"],["Alamo Pro Roofers","4.7 ★ (89)"],["Frisco Exteriors","4.6 ★ (73)"]];
+const rowsEl=$('#rows');
+function mk(n,me){const d=document.createElement('div');d.className='row'+(me?' me':'');d.innerHTML='<span class="rk"></span><div><b>'+n+'</b><small class="rt"></small></div>';rowsEl.appendChild(d);return d}
+const rowEls=[...OTH.map(o=>mk(o[0])),mk('[Your Roofing Co]',true)];
+OTH.forEach((o,i)=>rowEls[i].querySelector('.rt').textContent=o[1]);
+function render3(t){
+  const st=t<97?-1:t<109?0:t<134?1:t<152?2:3,view=Math.max(st,0),lc=st<0?0:t-SS[view];
+  $$('.tab').forEach((e,i)=>e.classList.toggle('on',i===st));
+  $$('.ps').forEach((e,i)=>{e.classList.toggle('on',i===view);e.querySelectorAll('[data-at]').forEach(m=>m.classList.toggle('v',i===view&&lc>=+m.dataset.at))});
+  $$('[data-star]').forEach(e=>e.classList.toggle('g',view===3&&lc>=+e.dataset.star));
+  $('#fbb').classList.toggle('v',view===0&&lc>=6);
+  $('#ban').classList.toggle('v',view===1&&lc>=14);
+  const p=st===3?Math.max(0,Math.min(1,(lc-1)/5)):0,top=p>=.5,RH=innerWidth<640?40:46;
+  rowsEl.style.height=RH*4+'px';$('#cut').style.top=RH*3-2+'px';
+  rowEls.forEach((r,i)=>{const me=i===3,idx=me?(top?0:3):(top?i+1:i);
+    r.style.top=idx*RH+'px';r.style.height=RH-5+'px';r.style.opacity=idx>=3?.55:1;r.querySelector('.rk').textContent='#'+(idx+1);
+    if(me)r.querySelector('.rt').textContent=(4.3+.6*p).toFixed(1)+' ★ ('+(18+Math.round(46*p))+')'});
+  $('#mb').classList.toggle('v',top);
+}
+$$('.tab').forEach((b,i)=>b.onclick=()=>{seek(SS[i]+0.05);if(!playing())play()});
+
+/* ROI */
+const usd=n=>'$'+n.toLocaleString('en-US');
+function roi(){const n=+$('#roi').value,rev=n*18000;$('#rn').textContent=n;$('#r1').textContent=usd(rev);$('#r2').textContent=usd(rev*.05);$('#r3').textContent=usd(rev*.95)}
+$('#roi').oninput=roi;roi();sync();
+</script>
+</body>
+</html>
